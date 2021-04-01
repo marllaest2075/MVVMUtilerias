@@ -12,10 +12,14 @@ namespace MVVMUtilerias.Commands
         private readonly Action<object> _action;
         private readonly Predicate<object> _predicate;
         public event EventHandler CanExecuteChanged;
-        public Relay(Action<object> action, Predicate<object> predicate = null)
+        public Relay(Action<object> action, Predicate<object> predicate)
         {
             _action = action;
             _predicate = predicate;           
+        }
+        public Relay(Action<object> action) :this(action,null)
+        {
+
         }
         public bool CanExecute(object parameter)
         {
